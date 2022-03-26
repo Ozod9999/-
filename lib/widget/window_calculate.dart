@@ -90,7 +90,7 @@ class ResultWidget extends StatelessWidget {
       children: [
         Text('Ежемесяный платёж: $valueAnnu'),
         Text('Ежемесяный платёж: $valueDiff'),
-        // TableCalculation(),
+        TableCalculation(),
       ],
     );
   }
@@ -115,6 +115,7 @@ class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
     switch (index) {
       case 0:
         SimpleCalcWidgetProvider.read(context)?.recultcalcAnnu();
+        
         break;
       case 1:
         SimpleCalcWidgetProvider.read(context)?.recultcalcDiff();

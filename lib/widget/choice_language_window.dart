@@ -40,6 +40,9 @@ class _ChoiceLanguageState extends State<ChoiceLanguage> {
     );
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.mainDarkGreen,
+        onPressed:_next,child: const Icon(Icons.arrow_right),),
       appBar: AppBar(
         backgroundColor: AppColors.mainDarkGreen,
         title: const Center(
@@ -67,24 +70,24 @@ class _ChoiceLanguageState extends State<ChoiceLanguage> {
             height: 100,
           ),
           // ignore: avoid_unnecessary_containers, sized_box_for_whitespace
-          Container(
-            height: 100,
-            width: 400,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(AppColors.mainDarkGreen),
-                  ),
-                  onPressed: _next,
-                  child: const Text('Next'),
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   height: 100,
+          //   width: 400,
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.end,
+          //     mainAxisAlignment: MainAxisAlignment.end,
+          //     children: [
+          //       ElevatedButton(
+          //         style: ButtonStyle(
+          //           backgroundColor:
+          //               MaterialStateProperty.all(AppColors.mainDarkGreen),
+          //         ),
+          //         onPressed: _next,
+          //         child: const Text('Next'),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
