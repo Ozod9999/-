@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 var items = <int>[];
 
 class SimpleCalcWidgetModel extends ChangeNotifier {
-  int? _sumKred; // сумма кредита
-  int? _period; // период в месяцах
-  int? _protStavka; // годовая процентная ставка
+  double? _sumKred; // сумма кредита
+  double? _period; // период в месяцах
+  double? _protStavka; // годовая процентная ставка
   int? intPaying;
   int? intPayment;
 
@@ -26,9 +26,9 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
   double? bodyCred; // тело кредита
   double? x, y, d;
 
-  set sumKred(String value) => _sumKred = int.tryParse(value);  
-  set period(String value) => _period = int.tryParse(value);
-  set protStavka(String value) => _protStavka = int.tryParse(value);
+  set sumKred(String value) => _sumKred = double.tryParse(value);  
+  set period(String value) => _period = double.tryParse(value);
+  set protStavka(String value) => _protStavka = double.tryParse(value);
   void clearArray() {
   }
 
@@ -36,7 +36,7 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
     double? payment;
 
     if (_sumKred != null && _period != null && _protStavka != null) {
-      debt = _sumKred as double?;
+      debt = _sumKred;
       paying = 0;
       for (int i = 1; i <= _period!; i++) {
         debtPros = debt! * (_protStavka! / 12 / 100);
@@ -53,8 +53,8 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
     }
     if (this.payment != payment) {
       this.payment = payment;
-      notifyListeners();
     }
+    notifyListeners();
   }
 
   void recultcalcAnnu() {
@@ -66,7 +66,7 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
       x = pow(d!, _period!) as double?;
       y = monthProc! + (monthProc! / (x! - 1));
       montPaying = _sumKred! * y!;
-      remainderSum = _sumKred as double?;
+      remainderSum = _sumKred;
 
       for (int i = 1; i <= _period!; i++) {
         bodyCred = montPaying - (remainderSum! * monthProc!);
@@ -132,7 +132,7 @@ class _TableCalculationState extends State<TableCalculation> {
       child: DataTable(
         columns: const [
           DataColumn(label: Text('Месяц')),
-          DataColumn(label: Text('Сумма остатка')),
+          // DataColumn(label: Text('Сумма остатка')),
           // DataColumn(label: Text('Процент')),
           // DataColumn(label: Text('Оплата')),
         ],
@@ -140,7 +140,7 @@ class _TableCalculationState extends State<TableCalculation> {
           for (var i = 0; i < items.length; i++)
             DataRow(cells: [
               DataCell(Text(' ${items[i]}')),
-              DataCell(Text(' ${items[i]}')),
+              // DataCell(Text(' ${items[i]}')),
             ]),
         ],
       ),

@@ -41,11 +41,11 @@ class _CalculateDecorationState extends State<CalculateDecoration> {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SimpleCalcWidgetProvider(
           model: _model,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -81,6 +81,7 @@ class _CalculateDecorationState extends State<CalculateDecoration> {
                 ToggleButtonWidget(),
                 SizedBox(height: 20),
                 ResultWidget(),
+                
               ],
             ),
           ),

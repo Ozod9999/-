@@ -69,25 +69,6 @@ class _ChoiceLanguageState extends State<ChoiceLanguage> {
           const SizedBox(
             height: 100,
           ),
-          // ignore: avoid_unnecessary_containers, sized_box_for_whitespace
-          // Container(
-          //   height: 100,
-          //   width: 400,
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.end,
-          //     mainAxisAlignment: MainAxisAlignment.end,
-          //     children: [
-          //       ElevatedButton(
-          //         style: ButtonStyle(
-          //           backgroundColor:
-          //               MaterialStateProperty.all(AppColors.mainDarkGreen),
-          //         ),
-          //         onPressed: _next,
-          //         child: const Text('Next'),
-          //       ),
-          //     ],
-          //   ),
-          // ),
         ],
       ),
     );
@@ -110,7 +91,7 @@ class _ChoiceLanguageWidgetState extends State<ChoiceLanguageWidget> {
       children: [
         Center(
           child: DropdownButton<String>(
-              dropdownColor: const Color.fromARGB(150, 6, 119, 119),
+              dropdownColor: const Color.fromARGB(250, 6, 119, 119),
               borderRadius: BorderRadius.circular(10),
               value: languagelistValue,
               iconSize: 20,
