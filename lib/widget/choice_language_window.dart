@@ -33,16 +33,16 @@ class _ChoiceLanguageState extends State<ChoiceLanguage> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variableS
     var textStyle = const TextStyle(
       fontSize: 16,
       color: Colors.orange,
     );
-
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.mainDarkGreen,
-        onPressed:_next,child: const Icon(Icons.arrow_right),),
+        onPressed: _next,
+        child: const Text('Next'),
+      ),
       appBar: AppBar(
         backgroundColor: AppColors.mainDarkGreen,
         title: const Center(
@@ -91,12 +91,12 @@ class _ChoiceLanguageWidgetState extends State<ChoiceLanguageWidget> {
       children: [
         Center(
           child: DropdownButton<String>(
-              dropdownColor: const Color.fromARGB(250, 6, 119, 119),
-              borderRadius: BorderRadius.circular(10),
+              dropdownColor: AppColors.mainDarkGreen,
+              borderRadius: BorderRadius.circular(5),
               value: languagelistValue,
-              iconSize: 20,
-              icon: const Icon(Icons.arrow_drop_down_rounded),
-              elevation: 8,
+              iconSize: 30,
+              elevation: 10,
+              icon: const Icon(Icons.dehaze_outlined),
               style: const TextStyle(color: Colors.black),
               underline: Container(
                 width: 50,

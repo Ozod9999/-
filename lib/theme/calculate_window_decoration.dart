@@ -81,7 +81,6 @@ class _CalculateDecorationState extends State<CalculateDecoration> {
                 ToggleButtonWidget(),
                 SizedBox(height: 20),
                 ResultWidget(),
-                
               ],
             ),
           ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_work/logic_calculate/kredi_cal_logic.dart';
 import 'package:flutter_application_work/theme/app_Colors/app_colors.dart';
+import 'package:flutter_application_work/widget/table_calculation.dart';
 
 ////==== окно расчёта кредита ====\\\\
 
@@ -90,6 +91,9 @@ class ResultWidget extends StatelessWidget {
       children: [
         Text('Ежемесяный платёж: $valueAnnu'),
         Text('Ежемесяный платёж: $valueDiff'),
+        Center(
+          child: CalculateButtonWidget(),
+        ),
         TableCalculation(),
       ],
     );
@@ -104,6 +108,7 @@ class ToggleButtonWidget extends StatefulWidget {
 }
 
 late List<bool> isSelected;
+int? choiceCalculate;
 
 class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
   void _choiceCalculButton(int index) {
@@ -114,11 +119,10 @@ class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
     });
     switch (index) {
       case 0:
-        SimpleCalcWidgetProvider.read(context)?.recultcalcAnnu();
-        
+        choiceCalculate = 0;
         break;
       case 1:
-        SimpleCalcWidgetProvider.read(context)?.recultcalcDiff();
+        choiceCalculate = 1;
         break;
     }
   }
@@ -144,6 +148,30 @@ class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
       renderBorder: false,
       selectedColor: Color.fromARGB(100, 250, 0, 0),
       selectedBorderColor: AppColors.mainDarkGreen,
+    );
+  }
+}
+
+class CalculateButtonWidget extends StatelessWidget {
+  const CalculateButtonWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.mainDarkGreen),
+      ),
+      onPressed: () {
+        switch (choiceCalculate) {
+          case 0:
+            SimpleCalcWidgetProvider.read(context)?.recultcalcAnnu();
+            break;
+          case 1:
+            SimpleCalcWidgetProvider.read(context)?.recultcalcDiff();
+            break;
+        }
+      },
+      child: const Text('Посчитать'),
     );
   }
 }

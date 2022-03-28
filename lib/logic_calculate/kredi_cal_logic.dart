@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 ////________ формула расчёта кредита _________\\\\
 
 var items = <int>[];
+var itemsDebt = <int>[];
 
 class SimpleCalcWidgetModel extends ChangeNotifier {
   double? _sumKred; // сумма кредита
@@ -13,6 +14,7 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
   double? _protStavka; // годовая процентная ставка
   int? intPaying;
   int? intPayment;
+  int? intDebt;
 
   double? debt; // долг на начало месяца
   double? debtPros; // процент долга
@@ -26,15 +28,12 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
   double? bodyCred; // тело кредита
   double? x, y, d;
 
-  set sumKred(String value) => _sumKred = double.tryParse(value);  
+  set sumKred(String value) => _sumKred = double.tryParse(value);
   set period(String value) => _period = double.tryParse(value);
   set protStavka(String value) => _protStavka = double.tryParse(value);
-  void clearArray() {
-  }
 
   void recultcalcDiff() {
     double? payment;
-
     if (_sumKred != null && _period != null && _protStavka != null) {
       debt = _sumKred;
       paying = 0;
@@ -43,8 +42,11 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
         paying = paying! + debtPros!;
         payment = _sumKred! / _period! + debtPros!;
         // print( ' %2i      %9.0f     %9.0f   %9.0f\n',  i,  debt,  debtPros,  payment);
-        final iteration = i;
-        items.add(iteration);
+        // final iteration = i;
+        items.add(i);
+        intDebt = (debt!).round();
+        // final debtMonth = intDebt;
+        itemsDebt.add(intDebt!);
         intPayment = (payment).round();
         debt = debt! - _sumKred! / _period!;
       }
@@ -115,35 +117,5 @@ class SimpleCalcWidgetProvider
   @override
   bool updateShouldNotify(SimpleCalcWidgetProvider oldWidget) {
     return notifier != oldWidget.notifier;
-  }
-}
-
-class TableCalculation extends StatefulWidget {
-  const TableCalculation({Key? key}) : super(key: key);
-
-  @override
-  _TableCalculationState createState() => _TableCalculationState();
-}
-
-class _TableCalculationState extends State<TableCalculation> {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: DataTable(
-        columns: const [
-          DataColumn(label: Text('Месяц')),
-          // DataColumn(label: Text('Сумма остатка')),
-          // DataColumn(label: Text('Процент')),
-          // DataColumn(label: Text('Оплата')),
-        ],
-        rows: [
-          for (var i = 0; i < items.length; i++)
-            DataRow(cells: [
-              DataCell(Text(' ${items[i]}')),
-              // DataCell(Text(' ${items[i]}')),
-            ]),
-        ],
-      ),
-    );
   }
 }
