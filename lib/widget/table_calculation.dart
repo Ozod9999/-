@@ -13,34 +13,34 @@ class _TableCalculationState extends State<TableCalculation> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 15,
       shadowColor: AppColors.mainDarkGreen,
-      child: DataTable(
-        columns: [
-          // ignore: prefer_const_constructors
-          DataColumn(
-            label: Container(
-              height: 40,
-              width: 45,
-              child: const Text('Месяц'),
+      child: SingleChildScrollView(
+        child: DataTable(
+          columns: const [
+            DataColumn(
+              label: Text('Месяц'),
             ),
-          ),
-          DataColumn(
-            label: Container(
-              height: 40,
-              width: 45,
-              child: const Text('сумма остатка'),
+            DataColumn(
+              label: Text('сумма'),
             ),
-          ),
-          // DataColumn(label: Text('Процент')),
-          // DataColumn(label: Text('Оплата')),
-        ],
-        rows: [
-          for (var i = 0; i < items.length; i++)
-              DataRow(cells: [
-                DataCell(Text(' ${items[i]}')),
-                DataCell(Text(' ${itemsDebt[i]}')),
-              ]),
-        ],
+            DataColumn(
+              label: Text('Процент'),
+              ),
+            DataColumn(
+              label: Text('Оплата'),
+              ),
+          ],
+          rows: [
+            for (var i = 0; i < items.length; i++)
+                DataRow(cells: [
+                  DataCell(Text(' ${items[i]}')),
+                  DataCell(Text(' ${itemsDebt[i]}')),
+                  DataCell(Text(' ${itemsDebtPros[i]}')),
+                  DataCell(Text(' ${itemsPayment[i]}')),
+                ]),
+          ],
+        ),
       ),
     );
   }

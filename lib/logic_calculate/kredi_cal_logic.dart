@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 var items = <int>[];
 var itemsDebt = <int>[];
+var itemsDebtPros = <int>[];
+var itemsPayment = <int>[];
 
 class SimpleCalcWidgetModel extends ChangeNotifier {
   double? _sumKred; // сумма кредита
@@ -14,12 +16,14 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
   double? _protStavka; // годовая процентная ставка
   int? intPaying;
   int? intPayment;
-  int? intDebt;
+  
 
   double? debt; // долг на начало месяца
   double? debtPros; // процент долга
   double? payment; // сумма
   double? paying; // сумма оплаты
+  int? intDebt;
+  int? intDebtPros;
 
   double? montPaying; // суммы оплаты каждый месяц
   double? monthProc; // проц. ставка каждого месяца
@@ -42,12 +46,13 @@ class SimpleCalcWidgetModel extends ChangeNotifier {
         paying = paying! + debtPros!;
         payment = _sumKred! / _period! + debtPros!;
         // print( ' %2i      %9.0f     %9.0f   %9.0f\n',  i,  debt,  debtPros,  payment);
-        // final iteration = i;
         items.add(i);
         intDebt = (debt!).round();
-        // final debtMonth = intDebt;
         itemsDebt.add(intDebt!);
+        intDebtPros = (debtPros!).round();
+        itemsDebtPros.add(intDebtPros!);
         intPayment = (payment).round();
+        itemsPayment.add(intPayment!);
         debt = debt! - _sumKred! / _period!;
       }
     } else {
