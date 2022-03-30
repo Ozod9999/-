@@ -40,50 +40,51 @@ class _CalculateDecorationState extends State<CalculateDecoration> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SimpleCalcWidgetProvider(
-          model: _model,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                SizedBox(height: 30),
-                Text(
-                  'Сумма кредита',
-                  style: TextStyle(color: AppColors.mainDarkGreen),
-                ),
-                SizedBox(height: 10),
-                SumKredWidget(),
-                SizedBox(height: 20),
-                Text(
-                  'Срок кредита',
-                  style: TextStyle(color: AppColors.mainDarkGreen),
-                ),
-                SizedBox(height: 10),
-                PeriodWidget(),
-                SizedBox(height: 20),
-                Text(
-                  'Годовая процентная ставка',
-                  style: TextStyle(color: AppColors.mainDarkGreen),
-                ),
-                SizedBox(height: 10),
-                ProcentWidget(),
-                SizedBox(height: 10),
-                Text(
-                  'Выберите способ расчёта',
-                  style: TextStyle(color: AppColors.mainDarkGreen),
-                ),
-                SizedBox(height: 10),
-                ToggleButtonWidget(),
-                SizedBox(height: 20),
-                ResultWidget(),
-              ],
+      child: SimpleCalcWidgetProvider(
+        model: _model,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  SizedBox(height: 30),
+                  Text(
+                    'Сумма кредита',
+                    style: TextStyle(color: AppColors.mainDarkGreen),
+                  ),
+                  SizedBox(height: 10),
+                  SumKredWidget(),
+                  SizedBox(height: 20),
+                  Text(
+                    'Срок кредита',
+                    style: TextStyle(color: AppColors.mainDarkGreen),
+                  ),
+                  SizedBox(height: 10),
+                  PeriodWidget(),
+                  SizedBox(height: 20),
+                  Text(
+                    'Годовая процентная ставка',
+                    style: TextStyle(color: AppColors.mainDarkGreen),
+                  ),
+                  SizedBox(height: 10),
+                  ProcentWidget(),
+                  SizedBox(height: 10),
+                  Text(
+                    'Выберите способ расчёта',
+                    style: TextStyle(color: AppColors.mainDarkGreen),
+                  ),
+                  SizedBox(height: 10),
+                  ToggleButtonWidget(),
+                  SizedBox(height: 20),
+                ],
+              ),
             ),
-          ),
+            const ResultWidget(),
+          ],
         ),
       ),
     );

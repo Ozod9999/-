@@ -31,27 +31,12 @@ var textFildDecor = const InputDecoration(
   isCollapsed: true,
 );
 
-late FocusNode myFocusNode;
-
-@override
-  void initState() {
-    initState();
-    myFocusNode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    myFocusNode.dispose();
-    dispose();
-  }
-
 class SumKredWidget extends StatelessWidget {
   const SumKredWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      autofocus: true,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       keyboardType: TextInputType.number,
       textInputAction: TextInputAction.next,
@@ -68,7 +53,6 @@ class PeriodWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      autofocus: true,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       keyboardType: TextInputType.number,
       textInputAction: TextInputAction.next,
@@ -85,7 +69,6 @@ class ProcentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      autofocus: true,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       keyboardType: TextInputType.number,
       textInputAction: TextInputAction.next,
