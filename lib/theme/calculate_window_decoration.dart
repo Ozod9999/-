@@ -72,13 +72,14 @@ class _CalculateDecorationState extends State<CalculateDecoration> {
                   ),
                   SizedBox(height: 10),
                   ProcentWidget(),
-                  SizedBox(height: 10),
-                  Text(
-                    'Выберите способ расчёта',
-                    style: TextStyle(color: AppColors.mainDarkGreen),
+                  SizedBox(height: 20),
+                  Center(
+                    child: Text(
+                      'Выберите способ расчёта',
+                      style: TextStyle(color: AppColors.mainDarkGreen),
+                    ),
                   ),
-                  SizedBox(height: 10),
-                  ToggleButtonWidget(),
+                  Center(child: ToggleButtonWidget(),),
                   SizedBox(height: 20),
                 ],
               ),

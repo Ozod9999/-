@@ -112,7 +112,7 @@ class ToggleButtonWidget extends StatefulWidget {
 
 late List<bool> isSelected;
 int? choiceCalculate;
-
+var textStile = const TextStyle(fontSize: 15);
 class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
   void _choiceCalculButton(int index) {
     setState(() {
@@ -139,18 +139,18 @@ class _ToggleButtonWidgetState extends State<ToggleButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return ToggleButtons(
-      children: const [
-        Text('Аннуитетный'),
-        Text('  Обычный  '),
+      children: [
+        Text('Аннуитетный', style: textStile,),
+        Text('  Обычный  ', style: textStile,),
       ],
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(5),
       onPressed: _choiceCalculButton,
       isSelected: isSelected,
       color: AppColors.mainDarkGreen,
       constraints: BoxConstraints(minHeight: 30),
       renderBorder: false,
-      selectedColor: Color.fromARGB(100, 250, 0, 0),
-      selectedBorderColor: AppColors.mainDarkGreen,
+      selectedColor: Colors.white,
+      fillColor: AppColors.mainDarkGreen,
     );
   }
 }
