@@ -94,6 +94,9 @@ class ResultWidget extends StatelessWidget {
         Center(
           child: CalculateButtonWidget(),
         ),
+        SizedBox(
+          height: 20,
+        ),
         TableCalculation(),
       ],
     );
